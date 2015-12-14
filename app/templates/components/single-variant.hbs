@@ -1,0 +1,23 @@
+<div class="form-group" id=variant>
+  <div class="row">
+    <div class="col-md-4">
+      {{input class="form-control" value=optionType}}
+    </div>
+    <div class="col-md-7">
+      {{ember-selectize
+        content=optionValues
+        multiple=true
+        optionValuePath="content.id"
+        optionLabelPath="content.name"
+        selection=optionValue
+        placeholder=placeholder
+        create-item=create-item
+      }}
+    </div>
+    <div class="col-md-1">
+      <button class="btn btn-default btn-sm" {{action 'removeVariant' variant}}>{{fa-icon 'trash'}}</button>
+    </div>
+  </div>
+</div>
+
+{{yield}}

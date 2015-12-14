@@ -1,0 +1,88 @@
+<div>
+  <h4>Variants</h4>
+</div>
+<div class="form-group">
+  <div class="row">
+    <div class="col-md-8">
+      <p>Does this product come in multiple variations like size or color?</p>
+    </div>
+    <div class="col-md-4">
+      {{#if variantsExists}}
+        <button type="submit" class="btn btn-default pull-right" {{action 'removeVariants'}}>Cancel</button>
+      {{else}}
+        <button type="submit" class="btn btn-primary pull-right" {{action 'addVariants'}}>Add Variant</button>
+      {{/if}}
+    </div>
+  </div>
+</div>
+
+{{#if variantsExists}}
+  <hr/>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-4">
+        Option Name
+      </div>
+      <div class="col-md-7">
+        Option Values
+      </div>
+    </div>
+  </div>
+  {{#if variantOption1}}
+    {{single-variant
+      optionValues=optionValues1
+      optionValue=optionValue1
+      optionType=optionType1
+      variant='variant1'
+      placeholder="eg. Small, Medium, Large"
+      create-item="createOptionValue1"
+      removeVariant='removeVariant'
+    }}
+  {{/if}}
+
+  {{#if variantOption2}}
+    {{single-variant
+      optionValues=optionValues2
+      optionValue=optionValue2
+      optionType=optionType2
+      variant='variant2'
+      placeholder="eg. Red, Green, Blue"
+      create-item="createOptionValue2"
+      removeVariant='removeVariant'
+    }}
+  {{/if}}
+  {{#if variantOption3}}
+    {{single-variant
+      optionValues=optionValues3
+      optionValue=optionValue3
+      optionType=optionType3
+      variant='variant3'
+      placeholder="eg. Cotton, Silk"
+      create-item="createOptionValue3"
+      removeVariant='removeVariant'
+    }}
+  {{/if}}
+  {{#if addOptionButton}}
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-default" {{action 'addVariantOption'}}>Add another option</button>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+{{/if}}
+
+{{variants-display
+  optionValue1=optionValue1
+  optionValue2=optionValue2
+  optionValue3=optionValue3
+  optionType1=optionType1
+  optionType2=optionType2
+  optionType3=optionType3
+  variantsExists=variantsExists
+}}
+
+{{yield}}
+
+{{yield}}

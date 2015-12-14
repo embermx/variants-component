@@ -1,0 +1,31 @@
+{{#if displayVariant}}
+  <hr/>
+  <p>Modify the variants to be created:</p>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Variant</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each multipleVariants as |variant|}}
+          <tr>
+            <td> <strong>{{variant.name}}</strong> </td>
+            <td class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon"><span>{{fa-icon 'inr'}}</span>
+                </span>
+                {{input class="form-control input-sm" placeholder="0.00" value=variant.price}}
+              </div>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+{{/if}}
+{{yield}}
